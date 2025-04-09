@@ -1,17 +1,27 @@
-.actionBtn {
-  margin-top: 5px;
-  margin-bottom: 2px;
-  font-size: 1.2em;
-}
+.container {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
 
-.snapshot {
-  text-align: center;
-  img {
-    max-width: 800px;
-    max-height: 800px;
+  .webcam-wrapper {
+    width: 100%;
+    height: 100%;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
-}
 
-ul.links {
-  padding-bottom: 20px;
+  .controls {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
