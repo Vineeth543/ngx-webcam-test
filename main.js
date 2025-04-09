@@ -60,6 +60,7 @@ class AppComponent {
         return this.trigger.asObservable();
     }
     get switchCameraObservable() {
+        this.switchCamera.next(true);
         return this.switchCamera.asObservable();
     }
     triggerSnapshot() {
