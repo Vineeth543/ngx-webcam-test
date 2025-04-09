@@ -1,6 +1,54 @@
 "use strict";
 (self["webpackChunkngx_webcam"] = self["webpackChunkngx_webcam"] || []).push([["vendor"],{
 
+/***/ 1119:
+/*!****************************************************************!*\
+  !*** ./node_modules/rxjs/_esm2015/internal/BehaviorSubject.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "BehaviorSubject": () => (/* binding */ BehaviorSubject)
+/* harmony export */ });
+/* harmony import */ var _Subject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Subject */ 4008);
+/* harmony import */ var _util_ObjectUnsubscribedError__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util/ObjectUnsubscribedError */ 5707);
+
+
+class BehaviorSubject extends _Subject__WEBPACK_IMPORTED_MODULE_0__.Subject {
+    constructor(_value) {
+        super();
+        this._value = _value;
+    }
+    get value() {
+        return this.getValue();
+    }
+    _subscribe(subscriber) {
+        const subscription = super._subscribe(subscriber);
+        if (subscription && !subscription.closed) {
+            subscriber.next(this._value);
+        }
+        return subscription;
+    }
+    getValue() {
+        if (this.hasError) {
+            throw this.thrownError;
+        }
+        else if (this.closed) {
+            throw new _util_ObjectUnsubscribedError__WEBPACK_IMPORTED_MODULE_1__.ObjectUnsubscribedError();
+        }
+        else {
+            return this._value;
+        }
+    }
+    next(value) {
+        super.next(this._value = value);
+    }
+}
+
+
+/***/ }),
+
 /***/ 1590:
 /*!***********************************************************!*\
   !*** ./node_modules/rxjs/_esm2015/internal/Observable.js ***!
