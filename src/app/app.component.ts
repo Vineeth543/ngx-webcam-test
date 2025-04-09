@@ -1,5 +1,5 @@
 import { WebcamImage } from "./modules/webcam/domain/webcam-image";
-import { Observable, Subject } from "rxjs";
+import { BehaviorSubject, Observable, Subject } from "rxjs";
 import {
   Component,
   ViewEncapsulation,
@@ -15,19 +15,18 @@ import {
 })
 export class AppComponent {
   private trigger: Subject<void> = new Subject<void>();
-  private nextWebcam: Subject<boolean | string> = new Subject<
-    boolean | string
-  >();
+  private switchCamera: BehaviorSubject<boolean | string> = new BehaviorSubject(
+    true
+  );
 
   public showWebcam: boolean = true;
-  public allowCameraSwitch: boolean = true;
 
   public get triggerObservable(): Observable<void> {
     return this.trigger.asObservable();
   }
 
-  public get nextWebcamObservable(): Observable<boolean | string> {
-    return this.nextWebcam.asObservable();
+  public get switchCameraObservable(): Observable<boolean | string> {
+    return this.switchCamera.asObservable();
   }
 
   public triggerSnapshot(): void {
