@@ -1,1 +1,1 @@
-{"version":3,"file":"styles.css","mappings":";;;AAAA,+E","sources":["./src/styles.scss"],"sourcesContent":["/* You can add global styles to this file, and also import other style files */\n"],"names":[],"sourceRoot":"webpack:///"}
+{"version":3,"file":"styles.css","mappings":";;;AAAA;EACE;EACA;EACA;AACF,C","sources":["./src/styles.scss"],"sourcesContent":["* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n"],"names":[],"sourceRoot":"webpack:///"}
