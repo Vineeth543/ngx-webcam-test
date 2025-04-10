@@ -26,7 +26,6 @@ export class AppComponent {
   }
 
   public get switchCameraObservable(): Observable<boolean | string> {
-    this.switchCamera.next(true);
     return this.switchCamera.asObservable();
   }
 
