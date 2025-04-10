@@ -1,24 +1,36 @@
-<div *ngIf="showWebcam; else showButton" class="container">
-  <webcam
-    class="webcam"
-    [trigger]="triggerObservable"
-    [imageQuality]="1"
-    [switchCamera]="switchCameraObservable"
-    (imageCapture)="handleImage($event)"
-    [allowCameraSwitch]="true"
-  ></webcam>
+<div class="container">
+  <div *ngIf="showWebcam; else showButton" class="webcam-container">
+    <webcam
+      class="webcam"
+      [trigger]="triggerObservable"
+      [imageQuality]="1"
+      [switchCamera]="switchCameraObservable"
+      (imageCapture)="handleImage($event)"
+      [allowCameraSwitch]="true"
+    ></webcam>
 
-  <div class="controls">
+    <div class="controls">
+      <img
+        width="72"
+        height="72"
+        src="assets/shutter.svg"
+        alt="shutter"
+        (click)="triggerSnapshot()"
+      />
+    </div>
+  </div>
+
+  <ng-template #showButton>
+    <div class="button-container">
+      <button class="button" (click)="toggleWebcam()">Open Webcam</button>
+    </div>
+  </ng-template>
+
+  <div class="image-container">
     <img
-      width="72"
-      height="72"
-      src="assets/shutter.svg"
-      alt="shutter"
-      (click)="triggerSnapshot()"
+      src="https://media.istockphoto.com/id/814423752/photo/eye-of-model-with-colorful-art-make-up-close-up.jpg?s=612x612&w=0&k=20&c=l15OdMWjgCKycMMShP8UK94ELVlEGvt7GmB_esHWPYE="
+      alt="image"
+      class="image"
     />
   </div>
 </div>
-
-<ng-template #showButton>
-  <button (click)="toggleWebcam()">Open Webcam</button>
-</ng-template>

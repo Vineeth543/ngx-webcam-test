@@ -20,7 +20,7 @@ export class AppComponent {
     boolean | string
   >();
 
-  public showWebcam: boolean = true;
+  public showWebcam: boolean = false;
 
   public get triggerObservable(): Observable<void> {
     return this.trigger.asObservable();
