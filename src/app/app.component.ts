@@ -4,6 +4,7 @@ import {
   Component,
   ViewEncapsulation,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
 } from "@angular/core";
 
 @Component({
@@ -29,13 +30,17 @@ export class AppComponent {
     return this.switchCamera.asObservable();
   }
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   public triggerSnapshot(): void {
     this.trigger.next();
     this.showWebcam = false;
+    this.cdr.detectChanges();
   }
 
   public toggleWebcam(): void {
     this.showWebcam = !this.showWebcam;
+    this.cdr.detectChanges();
   }
 
   public handleImage(webcamImage: WebcamImage): void {

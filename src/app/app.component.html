@@ -1,9 +1,6 @@
 <div *ngIf="showWebcam; else showButton" class="container">
   <webcam
-    *ngIf="showWebcam"
     class="webcam"
-    [width]="500"
-    [height]="500"
     [trigger]="triggerObservable"
     [imageQuality]="1"
     [switchCamera]="switchCameraObservable"
