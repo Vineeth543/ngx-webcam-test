@@ -16,18 +16,11 @@ import {
 })
 export class AppComponent {
   private trigger: Subject<void> = new Subject<void>();
-  private switchCamera: Subject<boolean | string> = new Subject<
-    boolean | string
-  >();
 
   public showWebcam: boolean = false;
 
   public get triggerObservable(): Observable<void> {
     return this.trigger.asObservable();
-  }
-
-  public get switchCameraObservable(): Observable<boolean | string> {
-    return this.switchCamera.asObservable();
   }
 
   constructor(private cdr: ChangeDetectorRef) {}

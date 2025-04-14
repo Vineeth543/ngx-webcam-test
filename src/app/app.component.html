@@ -3,8 +3,6 @@
     <webcam
       class="webcam"
       [trigger]="triggerObservable"
-      [imageQuality]="1"
-      [switchCamera]="switchCameraObservable"
       (imageCapture)="handleImage($event)"
       [allowCameraSwitch]="true"
     ></webcam>
