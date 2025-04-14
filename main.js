@@ -34,7 +34,7 @@ function AppComponent_div_1_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("trigger", ctx_r0.triggerObservable)("imageQuality", 1)("switchCamera", ctx_r0.switchCameraObservable)("allowCameraSwitch", true);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("trigger", ctx_r0.triggerObservable)("allowCameraSwitch", true);
 } }
 function AppComponent_ng_template_2_Template(rf, ctx) { if (rf & 1) {
     const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
@@ -49,14 +49,10 @@ class AppComponent {
     constructor(cdr) {
         this.cdr = cdr;
         this.trigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__.Subject();
-        this.switchCamera = new rxjs__WEBPACK_IMPORTED_MODULE_2__.Subject();
         this.showWebcam = false;
     }
     get triggerObservable() {
         return this.trigger.asObservable();
-    }
-    get switchCameraObservable() {
-        return this.switchCamera.asObservable();
     }
     triggerSnapshot() {
         this.trigger.next();
@@ -72,9 +68,9 @@ class AppComponent {
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ChangeDetectorRef)); };
-AppComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["appRoot"]], decls: 6, vars: 2, consts: [[1, "container"], ["class", "webcam-container", 4, "ngIf", "ngIfElse"], ["showButton", ""], [1, "image-container"], ["src", "https://media.istockphoto.com/id/814423752/photo/eye-of-model-with-colorful-art-make-up-close-up.jpg?s=612x612&w=0&k=20&c=l15OdMWjgCKycMMShP8UK94ELVlEGvt7GmB_esHWPYE=", "alt", "image", 1, "image"], [1, "webcam-container"], [1, "webcam", 3, "trigger", "imageQuality", "switchCamera", "allowCameraSwitch", "imageCapture"], [1, "controls"], ["width", "72", "height", "72", "src", "assets/shutter.svg", "alt", "shutter", 3, "click"], [1, "button-container"], [1, "button", 3, "click"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["appRoot"]], decls: 6, vars: 2, consts: [[1, "container"], ["class", "webcam-container", 4, "ngIf", "ngIfElse"], ["showButton", ""], [1, "image-container"], ["src", "https://media.istockphoto.com/id/814423752/photo/eye-of-model-with-colorful-art-make-up-close-up.jpg?s=612x612&w=0&k=20&c=l15OdMWjgCKycMMShP8UK94ELVlEGvt7GmB_esHWPYE=", "alt", "image", 1, "image"], [1, "webcam-container"], [1, "webcam", 3, "trigger", "allowCameraSwitch", "imageCapture"], [1, "controls"], ["width", "72", "height", "72", "src", "assets/shutter.svg", "alt", "shutter", 3, "click"], [1, "button-container"], [1, "button", 3, "click"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, AppComponent_div_1_Template, 4, 4, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, AppComponent_div_1_Template, 4, 2, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, AppComponent_ng_template_2_Template, 3, 0, "ng-template", null, 2, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplateRefExtractor"]);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "div", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](5, "img", 4);
