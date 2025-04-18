@@ -1,42 +1,23 @@
+import { Subject } from "rxjs";
 import { WebcamImage } from "./modules/webcam/domain/webcam-image";
-import { Observable, Subject } from "rxjs";
-import {
-  Component,
-  ViewEncapsulation,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-} from "@angular/core";
+import { Component, ViewEncapsulation } from "@angular/core";
 
 @Component({
   selector: "appRoot",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  private trigger: Subject<void> = new Subject<void>();
+  public _trigger$: Subject<void> = new Subject<void>();
+  public _showWebcam: boolean = false;
 
-  public showWebcam: boolean = false;
-
-  public get triggerObservable(): Observable<void> {
-    return this.trigger.asObservable();
+  public _toggleWebcam(): void {
+    this._showWebcam = !this._showWebcam;
   }
 
-  constructor(private cdr: ChangeDetectorRef) {}
-
-  public triggerSnapshot(): void {
-    this.trigger.next();
-    this.showWebcam = false;
-    this.cdr.detectChanges();
-  }
-
-  public toggleWebcam(): void {
-    this.showWebcam = !this.showWebcam;
-    this.cdr.detectChanges();
-  }
-
-  public handleImage(webcamImage: WebcamImage): void {
+  public _handleImage(webcamImage: WebcamImage): void {
+    this._showWebcam = false;
     console.log(webcamImage);
   }
 }

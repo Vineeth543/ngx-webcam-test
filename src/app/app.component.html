@@ -1,9 +1,8 @@
 <div class="container">
-  <div *ngIf="showWebcam; else showButton" class="webcam-container">
+  <div *ngIf="_showWebcam; else showButton" class="webcam-container">
     <webcam
-      class="webcam"
-      [trigger]="triggerObservable"
-      (imageCapture)="handleImage($event)"
+      [trigger]="_trigger$.asObservable()"
+      (imageCapture)="_handleImage($event)"
       [allowCameraSwitch]="true"
     ></webcam>
 
@@ -13,14 +12,14 @@
         height="72"
         src="assets/shutter.svg"
         alt="shutter"
-        (click)="triggerSnapshot()"
+        (click)="_trigger$.next()"
       />
     </div>
   </div>
 
   <ng-template #showButton>
     <div class="button-container">
-      <button class="button" (click)="toggleWebcam()">Open Webcam</button>
+      <button class="button" (click)="_toggleWebcam()">Open Webcam</button>
     </div>
   </ng-template>
 

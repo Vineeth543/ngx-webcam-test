@@ -16,31 +16,18 @@
   }
 
   .webcam-container {
-    display: block;
-    width: 100vw;
-    height: 100vh;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     z-index: 9999;
 
-    .webcam {
-      display: block;
+    .webcam-wrapper {
       width: 100%;
       height: 100%;
 
-      &-wrapper {
-        // display: block;
+      video {
         width: 100%;
         height: 100%;
-
-        video {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
+        object-fit: cover;
       }
     }
 
